@@ -6,8 +6,8 @@
     "HTML5",
     "scalpel"
   ],
-  "website": "https://github.com/bobetbat/shop-template/",
-  "repository": "https://github.com/bobetbat/shop-template",
+  "website": "https://github.com/bobetbat/landing-shop-tamplate",
+  "repository": "https://github.com/bobetbat/landing-shop-tamplate",
   "logo": "https://small-sharp-tool.com/logo.svg",
   "success_url": "/welcome",
   "env": {
