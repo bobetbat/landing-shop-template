@@ -11,9 +11,7 @@ type Props = {
 
 const Menu: React.FC<Props> = ({ pages }) => {
   return (
-    <Container
-    // sx={{ width: '100vw', height: '100vh', background: 'red' }}
-    >
+    <Container>
       {pages.map((p) => {
         return (
           <Block>
