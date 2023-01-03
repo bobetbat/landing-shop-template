@@ -16,7 +16,8 @@ const Menu: React.FC<Props> = ({ pages }) => {
     >
       {pages.map((p) => {
         return (
-          <Block title={p.title ?? ''} >
+          <Block>
+            <Typography>{p.title ?? ''}</Typography>
             {p.content}
           </Block>
         )

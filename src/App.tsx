@@ -1,11 +1,7 @@
 import React from 'react';
-import { Container, Box } from '@mui/material';
-
-import logo from './logo.svg';
 import './App.css';
 import { Header } from './components';
 import Layout from './components/Layout';
-import Block from './components/Block';
 import Menu from './components/Menu';
 
 export interface Page {
@@ -34,7 +30,7 @@ const pages:Page[] = [
 
 const App: React.FC = () => {
   return (
-    <div className="App" >
+    <div className="App">
       <Layout>
         <Header pages={pages} />
         <Menu pages={pages} />
