@@ -10,27 +10,12 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Page } from '../App';
 
-
 type Props = {
   pages: Page[];
 };
 
-const Header: React.FC<Props> = ({ pages }) => {
+export const Header: React.FC<Props> = ({ pages }) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-
-  const [header, setHeader] = React.useState<'sticky' | 'static'>("sticky")
-  const [offset, setOffset] = React.useState(0);
-
-  React.useEffect(() => {
-    const onScroll = () => {
-      setHeader(window.pageYOffset > offset ? 'static' : 'sticky')
-      setOffset(window.pageYOffset);
-    }
-    // clean up code
-    window.removeEventListener('scroll', onScroll);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [offset]);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -40,9 +25,16 @@ const Header: React.FC<Props> = ({ pages }) => {
     setAnchorElNav(null);
   };
 
+  const handleNavigation = (href: string) => {
+    const element = document.getElementById(href);
+    if (element) {
+      element.scrollIntoView();
+    }
+    handleCloseNavMenu()
+  };
 
   return (
-    <AppBar position={header}>
+    <AppBar >
       <Box maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -64,10 +56,10 @@ const Header: React.FC<Props> = ({ pages }) => {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page, i) => (
+            {pages.map((page) => (
               <Button
-                key={i}
-                onClick={handleCloseNavMenu}
+                key={page.href}
+                onClick={() => handleNavigation(page.href)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page.title}
@@ -103,8 +95,8 @@ const Header: React.FC<Props> = ({ pages }) => {
                 display: { xs: 'flex-end', md: 'none' },
               }}
             >
-              {pages.map((page, i) => (
-                <MenuItem key={i} onClick={handleCloseNavMenu}>
+              {pages.map((page) => (
+                <MenuItem key={page.href} onClick={() => handleNavigation(page.href)}>
                   <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
               ))}
@@ -115,4 +107,3 @@ const Header: React.FC<Props> = ({ pages }) => {
     </AppBar>
   );
 };
-export default Header;

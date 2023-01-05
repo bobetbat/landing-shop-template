@@ -6,7 +6,7 @@ type Props = {
   children?: React.ReactNode;
 };
 
-const Block: React.FC<Props> = ({ children }) => {
+export const Block: React.FC<Props> = ({ children }) => {
   return (
     <Container
       sx={{ height: '100vh', background: 'red' }}
@@ -16,4 +16,3 @@ const Block: React.FC<Props> = ({ children }) => {
   );
 }
 
-export default Block;
