@@ -1,8 +1,10 @@
 import React from 'react';
+
 import './App.css';
-import { Header } from './components/Header';
-import Layout from './components/Layout';
-import { HomePage } from './components/HomePage';
+import theme from './theme';
+import { Box, ThemeProvider, CssBaseline } from '@mui/material';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes';
 
 export interface Page {
   title: string;
@@ -10,36 +12,37 @@ export interface Page {
   href: string;
 }
 
-const pages: Page[] = [
+export const pages: Page[] = [
   {
     title: 'About Product',
-    content: 'About',
-    href:'#'
+    content: <Box>hello world</Box>,
+    href: '#'
   },
   {
     title: 'About us',
     content: 'About',
-    href:'#about'
+    href: '#about'
   },
   {
     title: 'Buy here',
     content: 'Product + Payment flow',
-    href:'#buyhere'
+    href: '#buyhere'
   },
   {
     title: 'Contact us',
     content: 'contact form',
-    href:'#contactus'
+    href: '#contactus'
   },
 ]
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Layout>
-        <Header pages={pages} />
-        <HomePage pages={pages} />
-      </Layout>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </div>
   );
 }
