@@ -3,11 +3,11 @@ import { Container } from '@mui/material';
 import { Block } from '../components/Block';
 import { pages } from '../routes';
 import { Box } from '@mui/system';
-import Layout from '../components/Layout';
+import { Layout } from '../components/Layout';
 
-export const Home: React.FC= () => {
+export const Home: React.FC = () => {
   return (
-    <Layout>
+    <Layout header footer>
       <Container>
         {pages.map((p) => {
           return (

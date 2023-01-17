@@ -1,12 +1,12 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
+import { Stack } from '@mui/material';
 
 export const Footer: React.FC = () => {
 
   return (
-    <AppBar position='static' sx={{ bottom: 0 }}>
+    <Stack sx={{ bottom: 1, bgcolor: 'primary.main', justifySelf: 'flex-end' }}>
       <Box maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -24,6 +24,6 @@ export const Footer: React.FC = () => {
           </Box>
         </Toolbar>
       </Box>
-    </AppBar>
+    </Stack>
   );
 };

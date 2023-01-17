@@ -5,14 +5,18 @@ import { Header } from './Header';
 
 type Props = {
   children: ReactNode;
+  footer?: boolean;
+  header?: boolean;
 };
 
-export default function Layout({ children }: Props) {
+export const Layout: React.FC<Props> = ({ children, footer, header }) => {
   return (
-    <Stack sx={{ minHeight: 1 }}>
-      <Header />
-      {children}
-      <Footer />
-    </Stack>
+    <>
+      {header && <Header />}
+      <Stack sx={{ minHeight: '100vh' }}>
+        {children}
+      </Stack>
+      {footer && <Footer />}
+    </>
   );
 }

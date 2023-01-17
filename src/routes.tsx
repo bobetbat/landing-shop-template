@@ -3,44 +3,57 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import { Home } from "./pages/Home";
+import { NotFound } from "./pages/NotFound";
 import { Products } from "./pages/Products";
 
-export const router = createBrowserRouter([
+export const routes = [
   {
     path: "/",
     element: <Home />,
+    errorElement: <NotFound />,
   },
   {
     path: "/products",
     element: <Products />,
   },
-]);
+];
+
+export const router = createBrowserRouter(routes);
 
 export interface Page {
+  path: string;
   title: string;
   content: React.ReactNode;
-  href: string;
+  href?: string;
 }
 
 export const pages: Page[] = [
   {
     title: 'About Product',
     content: <Box>hello world</Box>,
-    href: '#'
+    path: '/'
   },
   {
     title: 'About us',
     content: 'About',
-    href: '#about'
+    href: '#about',
+    path: '/#about'
   },
   {
-    title: 'Buy here',
+    title: 'Product',
     content: 'Product + Payment flow',
-    href: '#buyhere'
+    href: '#product',
+    path: '/#product'
+  },
+  {
+    title: 'Products',
+    content: 'Product + Payment flow',
+    path: '/products'
   },
   {
     title: 'Contact us',
     content: 'contact form',
-    href: '#contactus'
+    href: '#contactus',
+    path: '/#contactus'
   },
 ]
