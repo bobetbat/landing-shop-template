@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box, Button, IconButton, Menu as CMenu, MenuItem, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { pages } from '../App';
+import { pages } from '../routes';
 
 // type Props = {
 //   pages: Page[];

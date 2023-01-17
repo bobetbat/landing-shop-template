@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import { Block } from '../components/Block';
-import { pages } from '../App';
+import { pages } from '../routes';
 import { Box } from '@mui/system';
 import Layout from '../components/Layout';
 
@@ -24,13 +24,4 @@ export const Home: React.FC= () => {
       </Container>
     </Layout>
   );
-}
-// Block with content About Product
-export const AboutProduct: React.FC = () => {
-  return (
-    <Box>
-      <Typography variant='h4'>About Product</Typography>
-      
-    </Box>
-  )
 }
